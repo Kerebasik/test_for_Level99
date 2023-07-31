@@ -3,9 +3,10 @@ import './Edit.style.scss';
 import { useAppDispatch } from '../../../hooks/redux';
 import { userSlice } from '../../../store/userSlice';
 import {
+  deleteItemFromLocalStorage,
   setItemInLocalStorage,
 } from '../../../sevices/localStorageService';
-import { USERNAMEKEY } from '../../../varibles';
+import {NEWUSERNAMEKEY, USERNAMEKEY} from '../../../varibles';
 
 interface EditModelsProps {
   handleOnClose: () => void;
@@ -38,12 +39,15 @@ const EditModals: FC<EditModelsProps> = ({ handleOnClose }) => {
       })
       .finally(() => {
         handleOnClose();
+        deleteItemFromLocalStorage(NEWUSERNAMEKEY)
       });
   };
 
   useEffect(() => {
-    setItemInLocalStorage(USERNAMEKEY, newName);
+    setItemInLocalStorage('newName', newName);
   }, [newName]);
+
+
 
   const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
     setNewName(e.target.value);
