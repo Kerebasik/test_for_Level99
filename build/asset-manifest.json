@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/static/css/main.6a09d16f.css",
+    "main.js": "/static/js/main.6737177d.js",
+    "static/css/545.3c8cba71.chunk.css": "/static/css/545.3c8cba71.chunk.css",
+    "static/js/545.ab099326.chunk.js": "/static/js/545.ab099326.chunk.js",
+    "static/media/Ethereum-Logo-PNG-Image.png": "/static/media/Ethereum-Logo-PNG-Image.289e1cb3844b37abc54e.png",
+    "index.html": "/index.html",
+    "main.6a09d16f.css.map": "/static/css/main.6a09d16f.css.map",
+    "main.6737177d.js.map": "/static/js/main.6737177d.js.map",
+    "545.3c8cba71.chunk.css.map": "/static/css/545.3c8cba71.chunk.css.map",
+    "545.ab099326.chunk.js.map": "/static/js/545.ab099326.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6a09d16f.css",
+    "static/js/main.6737177d.js"
+  ]
+}
