@@ -1,5 +1,5 @@
 import {Suspense } from 'react';
-import './NotFound.style.scss';
+import './NotFound.style.css';
 import PreLoader from '../../parts/PreLoader/PreLoader';
 
 const NotFound = () => {

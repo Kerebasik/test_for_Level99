@@ -1,6 +1,6 @@
 import logo from '../../../assets/Ethereum-Logo-PNG-Image.png';
 import {PositionLimiter} from '../PositionLimiter/PositionLimiter';
-import './Header.style.scss';
+import './Header.style.css';
 
 const Header = () => {
   return (

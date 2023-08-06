@@ -1,0 +1,55 @@
+.editModals {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.editModals__form {
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.editModals__form__input p {
+  font-size: 18px;
+  margin: 5px 0;
+  font-weight: 700;
+}
+.editModals__form__input input {
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 100%;
+  font-size: 18px;
+  font-weight: 700;
+}
+.editModals__form__buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 10px;
+}
+.editModals__form__buttons button {
+  transition-property: background-color, color;
+  transition-duration: 0.5s;
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 100%;
+  font-size: 18px;
+  font-weight: 700;
+}
+@media (hover: hover) {
+  .editModals__form__buttons button:hover {
+    color: black;
+    background-color: #ffb628;
+  }
+}
+@media (hover: none) {
+  .editModals__form__buttons button:hover {
+    color: black;
+    background-color: #ffb628;
+  }
+}
+ 

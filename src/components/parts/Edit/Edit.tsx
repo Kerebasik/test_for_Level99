@@ -1,5 +1,5 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
-import './Edit.style.scss';
+import './Edit.style.css';
 import { useAppDispatch } from '../../../hooks/redux';
 import { userSlice } from '../../../store/userSlice';
 import { StoreServiceInstance } from '../../../sevices/storeService';

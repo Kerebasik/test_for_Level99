@@ -1,4 +1,4 @@
-import './LogIn.style.scss';
+import './LogIn.style.css';
 import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import {StoreServiceInstance} from '../../../sevices/storeService';
 import { useNavigate } from 'react-router-dom';

@@ -1,6 +1,6 @@
 import React from 'react';
 import Icon from '../../../assets/loader';
-import './PreLoader.style.scss';
+import './PreLoader.style.css';
 
 const Preloader = () => {
   return (

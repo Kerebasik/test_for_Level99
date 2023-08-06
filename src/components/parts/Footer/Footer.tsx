@@ -1,4 +1,4 @@
-import './Footer.style.scss';
+import './Footer.style.css';
 import {PositionLimiter} from '../PositionLimiter/PositionLimiter';
 
 const Footer = () => {

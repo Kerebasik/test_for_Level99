@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import './Profile.style.scss';
+import './Profile.style.css';
 import userImg from '../../../assets/Ethereum-Logo-PNG-Image.png';
 import EditModals from '../../parts/Edit/Edit';
 import { StoreServiceInstance } from '../../../sevices/storeService';
