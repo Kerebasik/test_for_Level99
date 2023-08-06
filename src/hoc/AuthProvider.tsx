@@ -1,6 +1,6 @@
-import { useState, createContext } from 'react';
-import { getItemFromLocalStorage } from '../sevices/localStorageService';
-import { USERNAMEKEY } from '../varibles';
+import {useState, createContext, ReactNode} from 'react';
+import { StoreServiceInstance } from '../sevices/storeService';
+import { USER_NAME_KEY } from '../constants/varibles';
 
 export type TAuthContextInitial = {
   auth: boolean;
@@ -16,9 +16,13 @@ const initialContext: TAuthContextInitial = {
 
 export const AuthContext = createContext<TAuthContextInitial>(initialContext);
 
-export const AuthProvider = ({ children }: any) => {
+interface AuthProviderProps{
+  children:ReactNode
+}
+
+export const AuthProvider = ({children}:AuthProviderProps) => {
   const [auth, setAuth] = useState<boolean>(
-    !!getItemFromLocalStorage(USERNAMEKEY)
+    !!StoreServiceInstance.getItem(USER_NAME_KEY)
   );
 
   const login = () => {

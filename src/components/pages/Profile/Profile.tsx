@@ -1,13 +1,13 @@
-import { FC, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './Profile.style.scss';
 import userImg from '../../../assets/Ethereum-Logo-PNG-Image.png';
 import EditModals from '../../parts/Edit/Edit';
-import { getItemFromLocalStorage } from '../../../sevices/localStorageService';
-import { USERNAMEKEY } from '../../../varibles';
+import { StoreServiceInstance } from '../../../sevices/storeService';
+import { USER_NAME_KEY } from '../../../constants/varibles';
 
-const Profile: FC = () => {
+const Profile = () => {
   const [userName, setUserName] = useState<string>();
-  const name = getItemFromLocalStorage(USERNAMEKEY);
+  const name = StoreServiceInstance.getItem(USER_NAME_KEY);
   const [openModal, setOpenModal] = useState<boolean>(false);
 
   useEffect(() => {
@@ -36,4 +36,4 @@ const Profile: FC = () => {
   );
 };
 
-export default Profile;
+export {Profile};

@@ -1,5 +1,5 @@
 import logo from '../../../assets/Ethereum-Logo-PNG-Image.png';
-import PositionLimiter from '../PositionLimiter/PositionLimiter';
+import {PositionLimiter} from '../PositionLimiter/PositionLimiter';
 import './Header.style.scss';
 
 const Header = () => {
@@ -16,4 +16,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export {Header};

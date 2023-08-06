@@ -1,18 +1,15 @@
-import { ChangeEvent, FC, FormEvent, useEffect, useState } from 'react';
+import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import './Edit.style.scss';
 import { useAppDispatch } from '../../../hooks/redux';
 import { userSlice } from '../../../store/userSlice';
-import {
-  deleteItemFromLocalStorage,
-  setItemInLocalStorage,
-} from '../../../sevices/localStorageService';
-import {NEWUSERNAMEKEY, USERNAMEKEY} from '../../../varibles';
+import { StoreServiceInstance } from '../../../sevices/storeService';
+import {NEW_USER_NAME_KEY, USER_NAME_KEY} from '../../../constants/varibles';
 
 interface EditModelsProps {
   handleOnClose: () => void;
 }
 
-const EditModals: FC<EditModelsProps> = ({ handleOnClose }) => {
+const EditModals = ({ handleOnClose }:EditModelsProps) => {
   const [newName, setNewName] = useState<string>('');
   const dispatch = useAppDispatch();
   const { addName } = userSlice.actions;
@@ -24,11 +21,11 @@ const EditModals: FC<EditModelsProps> = ({ handleOnClose }) => {
       try {
         if (newName === '') {
           dispatch(addName('user'));
-          setItemInLocalStorage(USERNAMEKEY, 'user');
+          StoreServiceInstance.setItem(USER_NAME_KEY, 'user');
           return resolve('user');
         }
         dispatch(addName(newName));
-        setItemInLocalStorage(USERNAMEKEY, newName);
+        StoreServiceInstance.setItem(USER_NAME_KEY, newName);
         resolve(newName);
       } catch (e) {
         reject(e);
@@ -39,12 +36,12 @@ const EditModals: FC<EditModelsProps> = ({ handleOnClose }) => {
       })
       .finally(() => {
         handleOnClose();
-        deleteItemFromLocalStorage(NEWUSERNAMEKEY)
+        StoreServiceInstance.deleteItem(NEW_USER_NAME_KEY)
       });
   };
 
   useEffect(() => {
-    setItemInLocalStorage('newName', newName);
+    StoreServiceInstance.setItem(NEW_USER_NAME_KEY, newName);
   }, [newName]);
 
 

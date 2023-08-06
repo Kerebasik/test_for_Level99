@@ -1,11 +1,12 @@
 import './LogIn.style.scss';
 import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
-import { setItemInLocalStorage } from '../../../sevices/localStorageService';
+import {StoreServiceInstance} from '../../../sevices/storeService';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../../hooks/redux';
 import { userSlice } from '../../../store/userSlice';
-import { USERNAMEKEY } from '../../../varibles';
+import { USER_NAME_KEY } from '../../../constants/varibles';
 import { useAuth } from '../../../hooks/useAuth';
+import {PrivateRoutes} from "../../../constants/routes";
 
 const LogIn = () => {
   const [name, setName] = useState<string>('');
@@ -18,11 +19,11 @@ const LogIn = () => {
     new Promise((resolve, reject) => {
       try {
         if (name === '') {
-          setItemInLocalStorage(USERNAMEKEY, 'user');
+          StoreServiceInstance.setItem(USER_NAME_KEY, 'user');
           dispatch(addName('user'));
           return resolve('user');
         }
-        setItemInLocalStorage(USERNAMEKEY, name);
+        StoreServiceInstance.setItem(USER_NAME_KEY, name);
         dispatch(addName(name));
         login();
         resolve(name);
@@ -31,7 +32,7 @@ const LogIn = () => {
       }
     })
       .then(() => {
-        navigate('/');
+        navigate(PrivateRoutes.ROOT);
       })
       .catch((error) => {
         console.error(error);
@@ -47,7 +48,7 @@ const LogIn = () => {
 
   useEffect(() => {
     if (auth) {
-      navigate('/');
+      navigate(PrivateRoutes.ROOT);
     }
   });
 
@@ -77,4 +78,4 @@ const LogIn = () => {
   );
 };
 
-export default LogIn;
+export {LogIn};

@@ -4,28 +4,29 @@ import {
   Route,
 } from 'react-router-dom';
 import { lazy } from 'react';
-import LogIn from './components/pages/LogIn/LogIn';
-import MainLayouts from './components/layouts/MainLayouts';
-import Profile from './components/pages/Profile/Profile';
-import { PrivateRoutes } from './hoc/PrivateRoute';
+import {LogIn} from './components/pages/LogIn/LogIn';
+import {MainLayout} from './components/layouts/MainLayout';
+import {Profile} from './components/pages/Profile/Profile';
+import { PrivateRoute } from './hoc/PrivateRoute';
+import {PublicRoutes, PrivateRoutes} from "./constants/routes";
 
 const NotFound = lazy(() => import('./components/pages/NotFound/NotFound'));
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
-      <Route path={'/login'} element={<LogIn />} />
-      <Route path={'/'} element={<MainLayouts />}>
+      <Route path={PublicRoutes.LOGIN} element={<LogIn />} />
+      <Route path={PrivateRoutes.ROOT} element={<MainLayout />}>
         <Route
           index
           element={
-            <PrivateRoutes>
+            <PrivateRoute>
               <Profile />
-            </PrivateRoutes>
+            </PrivateRoute>
           }
         />
       </Route>
-      <Route path={'*'} element={<NotFound />} />
+      <Route path={PublicRoutes.NOTFOUND} element={<NotFound />} />
     </Route>
   )
 );

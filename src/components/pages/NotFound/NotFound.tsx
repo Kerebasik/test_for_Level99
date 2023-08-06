@@ -1,8 +1,8 @@
-import { FC, Suspense } from 'react';
+import {Suspense } from 'react';
 import './NotFound.style.scss';
 import PreLoader from '../../parts/PreLoader/PreLoader';
 
-const NotFound: FC = () => {
+const NotFound = () => {
   return (
     <Suspense fallback={<PreLoader />}>
       <div className={'notfound'}>

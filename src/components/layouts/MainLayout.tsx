@@ -1,10 +1,9 @@
-import { FC } from 'react';
-import Header from '../parts/Header/Header';
+import {Header} from '../parts/Header/Header';
 import { Outlet } from 'react-router-dom';
-import PositionLimiter from '../parts/PositionLimiter/PositionLimiter';
+import {PositionLimiter} from '../parts/PositionLimiter/PositionLimiter';
 import Footer from '../parts/Footer/Footer';
 
-const MainLayouts: FC = () => {
+const MainLayout = () => {
   return (
     <>
       <Header />
@@ -18,4 +17,4 @@ const MainLayouts: FC = () => {
   );
 };
 
-export default MainLayouts;
+export {MainLayout};

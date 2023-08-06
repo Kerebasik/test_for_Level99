@@ -2,11 +2,9 @@ import React, { useEffect } from 'react';
 import { RouterProvider } from 'react-router-dom';
 import { router } from './router';
 import {
-  deleteItemFromLocalStorage,
-  getItemFromLocalStorage,
-  setItemInLocalStorage
-} from './sevices/localStorageService';
-import {NEWUSERNAMEKEY, USERNAMEKEY} from './varibles';
+  StoreServiceInstance
+} from './sevices/storeService';
+import {NEW_USER_NAME_KEY, USER_NAME_KEY} from './constants/varibles';
 import { useAppDispatch } from './hooks/redux';
 import { userSlice } from './store/userSlice';
 import { AuthProvider } from './hoc/AuthProvider';
@@ -17,16 +15,16 @@ function App() {
 
   useEffect(() => {
 
-    const newName = getItemFromLocalStorage(NEWUSERNAMEKEY)
+    const newName = StoreServiceInstance.getItem(NEW_USER_NAME_KEY)
 
     if(!!newName){
-      setItemInLocalStorage(USERNAMEKEY, getItemFromLocalStorage(NEWUSERNAMEKEY)!)
+      StoreServiceInstance.setItem(USER_NAME_KEY, StoreServiceInstance.getItem(NEW_USER_NAME_KEY)!)
     }
 
 
-    if (!!getItemFromLocalStorage(USERNAMEKEY)) {
-      dispatch(addName(getItemFromLocalStorage(USERNAMEKEY)));
-      deleteItemFromLocalStorage(NEWUSERNAMEKEY)
+    if (!!StoreServiceInstance.getItem(USER_NAME_KEY)) {
+      dispatch(addName(StoreServiceInstance.getItem(USER_NAME_KEY)));
+      StoreServiceInstance.deleteItem(NEW_USER_NAME_KEY)
     }
   }, []);
 
